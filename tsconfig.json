@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@lucky-number/models": ["libs/models/src/index.ts"]
+      "@lucky-number/models": ["libs/models/src/index.ts"],
+      "@lucky-number/api/draw": ["libs/api/draw/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

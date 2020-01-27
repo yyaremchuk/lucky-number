@@ -16,13 +16,10 @@ function DrawSummaryComponent(props: { draw: Draw; onUpdate: Function }) {
   };
 
   const handleSubmit = (value: string) => {
-    const numbers = value.split(' ');
+    const numbers = value.split(' ').join('.');
     props.onUpdate({
       ...props.draw,
-      result: {
-        mains: numbers.slice(0, 5),
-        lucky: numbers.slice(5)
-      }
+      result: numbers
     });
     setShowForm(false);
   };

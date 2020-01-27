@@ -38,7 +38,7 @@ function DrawHistoryList(props: {
         <div
           className="clickable"
           onClick={() => props.onSelect(index)}
-          key={draw.id}
+          key={draw._id}
         >
           <DrawInfoComponent draw={draw} />
         </div>

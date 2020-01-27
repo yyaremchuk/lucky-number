@@ -1,16 +1,10 @@
-import { v4 as uuid } from 'uuid';
-
-import { Combination } from '@lucky-number/models';
-
-function getRandomData(count: number): Array<Combination> {
-  const results: Array<Combination> = [];
+function getRandomData(count: number): Array<string> {
+  const results: Array<string> = [];
 
   for (let i = 0; i < count; i++) {
-    results.push({
-      mains: getRandomSetNew(50, 5),
-      id: uuid(),
-      lucky: getRandomSetNew(12, 2)
-    });
+    const tmp: Array<number> = [];
+    tmp.push(...getRandomSetNew(50, 5), ...getRandomSetNew(12, 2));
+    results.push(tmp.join('.'));
   }
 
   return results;
@@ -33,25 +27,6 @@ function getRandomSetNew(max: number, amount: number): number[] {
 
   return result.sort((a: number, b: number) => a - b);
 }
-
-// private static getRandomSet(min: number, max: number, amount: number): number[] {
-//     const result: number[] = [];
-//
-//     for (let i = 0; i < amount; i++) {
-//         let temp: number = 0;
-//
-//         while (temp === 0 ||
-//             result.indexOf(temp) > -1 ||
-//             result.indexOf(temp + 1) > -1 ||
-//             result.indexOf(temp - 1) > -1) {
-//             temp = this.getRandomNumber(min, max);
-//         }
-//
-//         result.push(temp);
-//     }
-//
-//     return result.sort((a: number, b: number) => a - b);
-// }
 
 function getRandomNumber(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min)) + min;

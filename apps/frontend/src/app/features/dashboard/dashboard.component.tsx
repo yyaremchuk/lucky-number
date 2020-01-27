@@ -10,16 +10,13 @@ function DashBoard(props: { draw: Draw; onUpdate: Function }) {
   return (
     <div>
       <h1>Selected Draw</h1>
-      <DrawSummaryComponent draw={props.draw} onUpdate={props.onUpdate} />
+      <DrawSummaryComponent {...props} />
       <div className="row">
         <div className="col mr-2">
           <PlayedCombinationsComponent draw={props.draw} />
         </div>
         <div className="col">
-          <SuggestedCombinationsComponent
-            draw={props.draw}
-            onUpdate={props.onUpdate}
-          />
+          <SuggestedCombinationsComponent {...props} />
         </div>
       </div>
     </div>

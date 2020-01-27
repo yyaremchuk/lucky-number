@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Draw, Combination } from '@lucky-number/models';
+import { Draw } from '@lucky-number/models';
 import CombinationComponent from '../../components/combination.component';
 import getRandomData from '../../helpers/data.utils';
 
@@ -16,10 +16,10 @@ function SuggestedCombinationsComponent(props: {
     });
   };
 
-  const handleSelect = (comb: Combination) => {
+  const handleSelect = (comb: string) => {
     props.onUpdate({
       ...props.draw,
-      suggested: [...props.draw.suggested.filter(item => item.id !== comb.id)],
+      suggested: [...props.draw.suggested.filter(item => item !== comb)],
       played: [...props.draw.played, comb]
     });
   };
@@ -41,9 +41,9 @@ function SuggestedCombinationsComponent(props: {
         <div
           className="row pt-1 clickable"
           onClick={() => handleSelect(comb)}
-          key={comb.id}
+          key={comb}
         >
-          <CombinationComponent data={comb} />
+          <CombinationComponent data={comb} result={props.draw.result} />
         </div>
       ))}
     </div>

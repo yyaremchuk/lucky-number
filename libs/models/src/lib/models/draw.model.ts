@@ -1,9 +1,7 @@
-import { Combination } from './combination.model';
-
 export interface Draw {
-  id?: string;
+  _id?: string;
   date: Date;
-  result: Combination;
-  played: Array<Combination>;
-  suggested: Array<Combination>;
+  result: string;
+  played: Array<string>;
+  suggested: Array<string>;
 }

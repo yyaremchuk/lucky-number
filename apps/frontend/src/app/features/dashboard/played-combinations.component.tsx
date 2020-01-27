@@ -8,7 +8,11 @@ function PlayedCombinationsComponent(props: { draw: Draw }) {
     <div>
       <h2>Played</h2>
       {props.draw.played.map(comb => (
-        <CombinationComponent data={comb} key={comb.id} />
+        <CombinationComponent
+          data={comb}
+          key={comb}
+          result={props.draw.result}
+        />
       ))}
     </div>
   );
